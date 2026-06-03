@@ -359,7 +359,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="release-meta" id="release-meta" style="display:none;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border)">
         <span class="release-version" id="rel-version"></span>
         <span class="release-date" id="rel-date"></span>
-        <a class="release-notes-link" id="rel-notes" href="release-notes-v4.0.5.html" target="_blank" rel="noopener">Release notes ↗</a>
+        <a class="release-notes-link" id="rel-notes" href="https://bixbi-super.github.io/mobisync-5g/release-notes-v4.0.5.html" target="_blank" rel="noopener">Release notes ↗</a>
       </div>
 
       <!-- dynamic assets -->
@@ -541,7 +541,7 @@ async function loadRelease() {
 
     document.getElementById('rel-version').textContent = release.tag_name || release.name;
     document.getElementById('rel-date').textContent    = release.published_at ? '· '+formatDate(release.published_at) : '';
-    document.getElementById('rel-notes').href          = release.html_url;
+    // rel-notes href is left as-is — points to release-notes-v4.0.5.html in the repo
     metaBar.style.display = 'flex';
 
     content.innerHTML = renderAssets(release.assets);

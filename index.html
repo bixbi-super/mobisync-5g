@@ -348,105 +348,82 @@ footer a { color: var(--accent); text-decoration: none; }
 <div class="dl-section" id="download">
   <div class="dl-inner">
     <div class="eyebrow" style="margin-bottom:8px">Download</div>
-    <h2 style="margin-bottom:6px">Choose your edition.</h2>
+    <h2 style="margin-bottom:6px">Latest release.</h2>
     <p style="font-size:14px;color:var(--sub);margin-bottom:32px">
-      Community Edition is free with no license needed. Professional Edition unlocks the full protocol stack.
+      One binary, two editions — behaviour depends on whether a <code style="font-family:var(--mono);font-size:12px;background:rgba(255,255,255,0.06);padding:1px 6px;border-radius:3px">license.lic</code> file is present.
     </p>
 
-    <!-- Edition comparison strip -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:32px">
+    <div class="dl-card">
 
-      <!-- COMMUNITY CARD -->
-      <div class="dl-card" style="border-color:rgba(56,200,160,0.35);position:relative">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-          <div>
-            <div style="font-family:var(--mono);font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:4px">Community Edition</div>
-            <div style="font-size:18px;font-weight:700;letter-spacing:-0.3px">Free forever</div>
-          </div>
-          <div style="background:rgba(56,200,160,0.12);border:1px solid rgba(56,200,160,0.3);color:var(--accent);font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:4px">FREE</div>
-        </div>
-
-        <!-- what's included -->
-        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border)">
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--accent);font-size:14px">✓</span> Live RRC OTA decode in Wireshark</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--accent);font-size:14px">✓</span> No license file required</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--accent);font-size:14px">✓</span> Ubuntu 22.04 / 24.04</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--sub)"><span style="color:var(--sub);font-size:14px">✗</span> NAS, MAC, RLC, L1 logs</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--sub)"><span style="color:var(--sub);font-size:14px">✗</span> Live KPI windows</div>
-        </div>
-
-        <!-- dynamic community assets -->
-        <div id="community-assets">
-          <div class="dl-state" style="padding:20px 0">
-            <div class="spinner"></div>
-            <div class="dl-state-title" style="font-size:13px">Fetching release…</div>
-          </div>
-        </div>
-
-        <div style="margin-top:12px">
-          <div style="font-family:var(--mono);font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Perfect for</div>
-          <div style="font-size:12px;color:var(--sub);line-height:1.6">Academic researchers · Open-source RAN developers · 5G learners · First-time users</div>
-        </div>
-      </div>
-
-      <!-- PROFESSIONAL CARD -->
-      <div class="dl-card" style="border-color:rgba(74,158,255,0.35);position:relative">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-          <div>
-            <div style="font-family:var(--mono);font-size:10px;color:var(--blue);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:4px">Professional Edition</div>
-            <div style="font-size:18px;font-weight:700;letter-spacing:-0.3px">Full stack access</div>
-          </div>
-          <div style="background:rgba(74,158,255,0.10);border:1px solid rgba(74,158,255,0.28);color:var(--blue);font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:4px">PRO</div>
-        </div>
-
-        <!-- what's included -->
-        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border)">
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> Everything in Community</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> NAS SM/MM — plain + secured OTA</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> MAC / RLC / PDCP per-TTI capture</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> L1 — RSRP / SINR / CQI + neighbours</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> Live KPI windows (DL, SNR, UL, PDCP)</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> Ubuntu + Windows + Raspberry Pi</div>
-        </div>
-
-        <!-- dynamic pro assets -->
-        <div id="pro-assets">
-          <div class="dl-state" style="padding:20px 0">
-            <div class="spinner"></div>
-            <div class="dl-state-title" style="font-size:13px">Fetching release…</div>
-          </div>
-        </div>
-
-        <div style="margin-top:12px">
-          <div style="font-family:var(--mono);font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Perfect for</div>
-          <div style="font-size:12px;color:var(--sub);line-height:1.6">Field engineers · R&amp;D labs · Network operators · Test &amp; verification teams</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- release meta + requirements -->
-    <div style="background:var(--surf2);border:1px solid var(--border);border-radius:10px;padding:24px 28px">
-      <div class="release-meta" id="release-meta" style="display:none;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)">
+      <!-- release meta bar -->
+      <div class="release-meta" id="release-meta" style="display:none;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border)">
         <span class="release-version" id="rel-version"></span>
         <span class="release-date" id="rel-date"></span>
         <a class="release-notes-link" id="rel-notes" href="#" target="_blank" rel="noopener">Release notes ↗</a>
       </div>
-      <div style="font-family:var(--mono);font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:0.13em;margin-bottom:12px">Requirements</div>
-      <ul class="req-list" style="margin-top:0">
-        <li>USB connection to a supported COTS 5G smartphone</li>
+
+      <!-- dynamic assets -->
+      <div id="dl-content">
+        <div class="dl-state">
+          <div class="spinner"></div>
+          <div class="dl-state-title">Fetching latest release…</div>
+        </div>
+      </div>
+
+      <!-- quick-start instructions -->
+      <div style="margin-top:16px;padding:14px 16px;background:rgba(56,200,160,0.05);border:1px solid rgba(56,200,160,0.15);border-radius:6px;font-family:var(--mono);font-size:11px;color:var(--sub);line-height:2">
+        <span style="color:var(--accent)">①</span> Download both files into the same folder<br>
+        <span style="color:var(--accent)">②</span> Run <code style="background:rgba(255,255,255,0.07);padding:1px 6px;border-radius:3px">chmod +x setup.sh &amp;&amp; ./setup.sh</code> once to install dependencies<br>
+        <span style="color:var(--accent)">③</span> Launch <code style="background:rgba(255,255,255,0.07);padding:1px 6px;border-radius:3px">./mobisync_v4p0p5-5g-logger_community_edn</code>
+      </div>
+
+      <!-- edition comparison -->
+      <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden">
+
+        <div style="background:var(--surf);padding:18px 20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+            <span style="font-size:13px;font-weight:600;color:var(--text)">Community Edition</span>
+            <span style="font-family:var(--mono);font-size:10px;background:rgba(56,200,160,0.10);color:var(--accent);border:1px solid rgba(56,200,160,0.25);border-radius:4px;padding:2px 8px">FREE</span>
+          </div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--sub);margin-bottom:10px">No <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">license.lic</code> file present</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="font-size:12px;color:var(--text);display:flex;gap:7px"><span style="color:var(--accent)">✓</span>Live RRC OTA decode in Wireshark</div>
+            <div style="font-size:12px;color:var(--sub);display:flex;gap:7px"><span>✗</span>NAS, MAC, RLC, PDCP, L1 logs</div>
+            <div style="font-size:12px;color:var(--sub);display:flex;gap:7px"><span>✗</span>Live KPI windows</div>
+          </div>
+        </div>
+
+        <div style="background:var(--surf);padding:18px 20px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+            <span style="font-size:13px;font-weight:600;color:var(--text)">Professional Edition</span>
+            <span style="font-family:var(--mono);font-size:10px;background:rgba(74,158,255,0.10);color:var(--blue);border:1px solid rgba(74,158,255,0.25);border-radius:4px;padding:2px 8px">PRO</span>
+          </div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--sub);margin-bottom:10px">Place <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">license.lic</code> alongside the binary</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="font-size:12px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue)">✓</span>Everything in Community</div>
+            <div style="font-size:12px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue)">✓</span>NAS, MAC, RLC, PDCP, L1 logs</div>
+            <div style="font-size:12px;color:var(--text);display:flex;gap:7px"><span style="color:var(--blue)">✓</span>Live KPI windows</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- requirements + trial -->
+      <ul class="req-list" style="margin-top:22px;padding-top:20px;border-top:1px solid var(--border)">
+        <li>USB connection to a supported COTS 5G smartphone (OnePlus, Quectel, Xiaomi/POCO, Samsung)</li>
         <li>Wireshark 4.4.2 or later installed on the host</li>
-        <li>Community: Ubuntu 22.04 / 24.04 · Professional: Ubuntu + Windows 10/11</li>
+        <li>Ubuntu 22.04 / 24.04 · Windows 10/11 (Professional)</li>
         <li>4 GB RAM recommended</li>
-        <li>Professional Edition requires a <code style="font-family:var(--mono);font-size:11px;background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">license.lic</code> file placed alongside the executable</li>
       </ul>
+
       <div class="trial-link-row" style="margin-top:20px">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScgfjohunyOemKoh6o7P4J34UoT6v8uIKG3AiFH7B7z56a48w/viewform?usp=sharing"
            target="_blank" rel="noopener" class="trial-link">
           Apply for Professional trial license →
         </a>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
 
@@ -477,12 +454,11 @@ footer a { color: var(--accent); text-decoration: none; }
 </footer>
 
 <script>
-// ── GitHub Releases — Community vs Professional ───────────────────────────────
+// ── GitHub Releases API ───────────────────────────────────────────────────────
 // Public repo: bixbi-super/mobisync-5g
-// Assets are classified into Community or Professional by filename.
-// Community assets contain "community" in the filename.
-// All other assets (exe, deb, win, pro, etc.) go to Professional.
-// Just publish a new release — this page updates automatically.
+// Same binary serves both Community and Professional editions.
+// Community = no license.lic · Professional = license.lic placed alongside binary.
+// Publish a new release on GitHub — this page updates automatically.
 
 const RELEASES_API  = 'https://api.github.com/repos/bixbi-super/mobisync-5g/releases/latest';
 const RELEASES_PAGE = 'https://github.com/bixbi-super/mobisync-5g/releases';
@@ -496,11 +472,12 @@ function formatDate(iso) {
   return new Date(iso).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
 }
 
-// Detect platform from filename
 function platform(name) {
   const n = name.toLowerCase();
-  if (n.endsWith('.exe') || n.endsWith('.msi') || n.includes('win') || n.includes('windows') || n.includes('setup'))
-    return { icon:'⊞', label:'Windows', cls:'win' };
+  if (n.endsWith('.sh'))
+    return { icon:'⚙', label:'Setup Script', cls:'lin' };
+  if (n.endsWith('.exe') || n.endsWith('.msi') || n.includes('win') || n.includes('windows'))
+    return { icon:'⊞', label:'Windows Installer', cls:'win' };
   if (n.endsWith('.deb'))
     return { icon:'◈', label:'Ubuntu / Debian (.deb)', cls:'lin' };
   if (n.endsWith('.rpm'))
@@ -513,96 +490,68 @@ function platform(name) {
     return { icon:'⊞', label:'Windows (zip)', cls:'win' };
   if (n.endsWith('.zip') && (n.includes('linux') || n.includes('ubuntu')))
     return { icon:'◈', label:'Linux (zip)', cls:'lin' };
-  return { icon:'⬇', label: name, cls:'other' };
+  // No extension — Linux executable
+  return { icon:'◈', label:'Linux Executable (Ubuntu)', cls:'lin' };
 }
 
-// Is this asset the Community Edition binary?
-function isCommunity(name) {
-  return name.toLowerCase().includes('community');
-}
+function renderAssets(assets) {
+  if (!assets || assets.length === 0) {
+    return `<div class="dl-state">
+      <div class="dl-state-icon">📦</div>
+      <div class="dl-state-title">Release published — assets uploading</div>
+      <div class="dl-state-sub">Refresh in a moment or <a href="${RELEASES_PAGE}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">view on GitHub ↗</a></div>
+    </div>`;
+  }
 
-function assetButton(asset, colorCls) {
-  const p = platform(asset.name);
-  const cls = colorCls || p.cls;
-  const size = formatBytes(asset.size);
-  const dlCount = asset.download_count ? asset.download_count.toLocaleString()+' downloads' : '';
-  const meta = [size, dlCount].filter(Boolean).join(' · ');
-  return `<a href="${asset.browser_download_url}" class="asset-btn ${cls}" download>
-    <span class="asset-icon">${p.icon}</span>
-    <div class="asset-info">
-      <span class="asset-name">${p.label}</span>
-      <span class="asset-meta">${asset.name}${meta ? ' · '+meta : ''}</span>
-    </div>
-  </a>`;
-}
+  const buttons = assets.map(asset => {
+    const p = platform(asset.name);
+    const size = formatBytes(asset.size);
+    const dlc  = asset.download_count ? asset.download_count.toLocaleString()+' downloads' : '';
+    const meta = [size, dlc].filter(Boolean).join(' · ');
+    return `<a href="${asset.browser_download_url}" class="asset-btn ${p.cls}" download>
+      <span class="asset-icon">${p.icon}</span>
+      <div class="asset-info">
+        <span class="asset-name">${p.label}</span>
+        <span class="asset-meta">${asset.name}${meta ? ' · '+meta : ''}</span>
+      </div>
+    </a>`;
+  }).join('');
 
-function comingSoon(msg) {
-  return `<div class="dl-state" style="padding:16px 0">
-    <div class="dl-state-icon">🚀</div>
-    <div class="dl-state-title" style="font-size:13px">${msg}</div>
-  </div>`;
+  return `<div class="assets-grid">${buttons}</div>`;
 }
 
 async function loadRelease() {
-  const communityEl = document.getElementById('community-assets');
-  const proEl       = document.getElementById('pro-assets');
-  const metaBar     = document.getElementById('release-meta');
+  const content = document.getElementById('dl-content');
+  const metaBar = document.getElementById('release-meta');
 
   try {
     const res = await fetch(RELEASES_API, { headers:{ 'Accept':'application/vnd.github+json' } });
 
     if (res.status === 404) {
-      communityEl.innerHTML = comingSoon('Release coming soon');
-      proEl.innerHTML       = comingSoon('Release coming soon');
+      content.innerHTML = `<div class="dl-state">
+        <div class="dl-state-icon">🚀</div>
+        <div class="dl-state-title">First release coming soon</div>
+        <div class="dl-state-sub">Download links appear automatically once published to <a href="${RELEASES_PAGE}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">bixbi-super/mobisync-5g</a>.</div>
+      </div>`;
       return;
     }
     if (!res.ok) throw new Error(res.status);
 
     const release = await res.json();
 
-    // Meta bar
     document.getElementById('rel-version').textContent = release.tag_name || release.name;
     document.getElementById('rel-date').textContent    = release.published_at ? '· '+formatDate(release.published_at) : '';
     document.getElementById('rel-notes').href          = release.html_url;
     metaBar.style.display = 'flex';
 
-    const assets = release.assets || [];
-
-    // Split assets
-    const communityAssets = assets.filter(a => isCommunity(a.name));
-    const proAssets       = assets.filter(a => !isCommunity(a.name));
-
-    // Render Community
-    if (communityAssets.length) {
-      communityEl.innerHTML = `<div class="assets-grid">${communityAssets.map(a => assetButton(a, 'win')).join('')}</div>`;
-    } else {
-      communityEl.innerHTML = comingSoon('Community binary coming soon');
-    }
-
-    // Render Professional
-    if (proAssets.length) {
-      proEl.innerHTML = `<div class="assets-grid">${proAssets.map(a => assetButton(a)).join('')}</div>`;
-    } else {
-      proEl.innerHTML = `<div class="dl-state" style="padding:16px 0">
-        <div class="dl-state-title" style="font-size:13px;color:var(--sub)">Contact us for Professional binaries</div>
-        <div style="margin-top:8px">
-          <a href="mailto:info@makemytechnology.com?subject=Mobisync Professional Edition Download"
-             style="font-family:var(--mono);font-size:12px;color:var(--blue);text-decoration:none">
-            info@makemytechnology.com ↗
-          </a>
-        </div>
-      </div>`;
-    }
+    content.innerHTML = renderAssets(release.assets);
 
   } catch(err) {
-    const errHtml = `<div class="dl-state" style="padding:16px 0">
-      <div class="dl-state-title" style="font-size:13px">Could not load —
-        <a href="${RELEASES_PAGE}" target="_blank" rel="noopener"
-           style="color:var(--accent);text-decoration:none">view on GitHub ↗</a>
-      </div>
+    content.innerHTML = `<div class="dl-state">
+      <div class="dl-state-icon">⚠️</div>
+      <div class="dl-state-title">Could not load release info</div>
+      <div class="dl-state-sub"><a href="${RELEASES_PAGE}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">View releases on GitHub ↗</a></div>
     </div>`;
-    communityEl.innerHTML = errHtml;
-    proEl.innerHTML       = errHtml;
   }
 }
 

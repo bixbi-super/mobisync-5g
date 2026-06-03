@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobisync v4.0.5 — Release Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #07090f; --surf: #0e1119; --surf2: #141825;
+  --border: rgba(56,200,160,0.14); --border2: rgba(56,200,160,0.28);
+  --accent: #38c8a0; --blue: #4a9eff; --warn: #f0b429;
+  --text: #dce8f8; --sub: #8899b4;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); font-size: 15px; line-height: 1.7; color: var(--text); background: var(--bg); max-width: 820px; margin: 0 auto; padding: 48px 2rem 80px; }
+
+/* header */
+.rn-header { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 40px; }
+.rn-back { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; color: var(--sub); text-decoration: none; margin-bottom: 24px; transition: color 0.15s; }
+.rn-back:hover { color: var(--accent); }
+.rn-product { font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px; }
+h1 { font-size: 32px; font-weight: 700; letter-spacing: -1px; color: var(--text); margin-bottom: 10px; line-height: 1.15; }
+.rn-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+.ver-chip { font-family: var(--mono); font-size: 12px; background: rgba(56,200,160,0.10); color: var(--accent); border: 1px solid var(--border2); border-radius: 5px; padding: 3px 10px; }
+.date-chip { font-family: var(--mono); font-size: 12px; color: var(--sub); }
+.edition-chip { font-family: var(--mono); font-size: 11px; background: rgba(56,200,160,0.07); color: var(--accent); border: 1px solid var(--border); border-radius: 10px; padding: 3px 10px; }
+
+/* sections */
+h2 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; color: var(--text); margin: 40px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 14px; font-weight: 600; color: var(--text); margin: 22px 0 8px; }
+p { font-size: 14px; color: var(--sub); line-height: 1.75; margin-bottom: 12px; }
+p strong { color: var(--text); font-weight: 600; }
+
+/* what's new */
+.new-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.new-item:last-child { border-bottom: none; }
+.new-badge { flex-shrink: 0; font-family: var(--mono); font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 4px; height: fit-content; margin-top: 2px; white-space: nowrap; }
+.badge-new { background: rgba(56,200,160,0.10); color: var(--accent); border: 1px solid rgba(56,200,160,0.25); }
+.badge-fix { background: rgba(74,158,255,0.10); color: var(--blue); border: 1px solid rgba(74,158,255,0.22); }
+.badge-imp { background: rgba(240,180,41,0.10); color: var(--warn); border: 1px solid rgba(240,180,41,0.22); }
+.new-content h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.new-content p { margin-bottom: 0; font-size: 13px; }
+
+/* edition comparison */
+.edition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 16px; }
+.edition-col { background: var(--surf); padding: 18px 20px; }
+.edition-col-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.edition-col-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.e-free { font-family: var(--mono); font-size: 10px; background: rgba(56,200,160,0.10); color: var(--accent); border: 1px solid rgba(56,200,160,0.25); border-radius: 4px; padding: 2px 7px; }
+.e-pro { font-family: var(--mono); font-size: 10px; background: rgba(74,158,255,0.10); color: var(--blue); border: 1px solid rgba(74,158,255,0.22); border-radius: 4px; padding: 2px 7px; }
+.feat-row { display: flex; gap: 8px; font-size: 12px; padding: 3px 0; }
+.feat-row .tick { flex-shrink: 0; width: 14px; }
+.tick.on  { color: var(--accent); }
+.tick.on-b { color: var(--blue); }
+.tick.off { color: var(--sub); }
+.feat-row span { color: var(--sub); }
+.feat-row span.active { color: var(--text); }
+
+/* install steps */
+.steps { display: flex; flex-direction: column; gap: 0; margin-top: 12px; }
+.step { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step-num { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: rgba(56,200,160,0.10); border: 1px solid var(--border2); color: var(--accent); font-family: var(--mono); font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.step-body h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+.step-body p { font-size: 13px; color: var(--sub); margin-bottom: 8px; line-height: 1.65; }
+.step-body p:last-child { margin-bottom: 0; }
+
+/* code blocks */
+.code-block { background: #0b0e17; border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 6px; padding: 12px 16px; margin: 8px 0; font-family: var(--mono); font-size: 12px; color: #38c8a0; line-height: 1.8; overflow-x: auto; }
+.code-block .comment { color: #445566; }
+.code-block .cmd { color: #38c8a0; }
+.code-block .arg { color: #7ab4ff; }
+code { font-family: var(--mono); font-size: 12px; background: rgba(255,255,255,0.06); color: var(--accent); padding: 2px 6px; border-radius: 3px; }
+
+/* note / warning boxes */
+.note { display: flex; gap: 12px; padding: 14px 16px; border-radius: 6px; margin: 16px 0; font-size: 13px; line-height: 1.65; }
+.note-info { background: rgba(74,158,255,0.06); border: 1px solid rgba(74,158,255,0.20); }
+.note-warn { background: rgba(240,180,41,0.06); border: 1px solid rgba(240,180,41,0.20); }
+.note-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+.note-body { color: var(--sub); }
+.note-body strong { color: var(--text); }
+
+/* requirements table */
+.req-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+.req-table th { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sub); padding: 8px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+.req-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--sub); }
+.req-table td:first-child { color: var(--text); font-weight: 500; white-space: nowrap; }
+.req-table tr:last-child td { border-bottom: none; }
+
+/* known issues */
+.issue-list { display: flex; flex-direction: column; gap: 0; }
+.issue { padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; font-size: 13px; }
+.issue:last-child { border-bottom: none; }
+.issue-dot { flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--warn); opacity: 0.6; margin-top: 5px; }
+.issue-text { color: var(--sub); line-height: 1.65; }
+.issue-text strong { color: var(--text); }
+
+/* contact footer */
+.rn-footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.rn-footer p { font-size: 13px; color: var(--sub); }
+.rn-footer a { color: var(--accent); text-decoration: none; }
+.rn-footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  body { padding: 32px 1.2rem 60px; }
+  .edition-grid { grid-template-columns: 1fr; }
+  h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="rn-header">
+  <a href="index.html" class="rn-back">← Back to product page</a>
+  <div class="rn-product">MakeMyTechnology · BixBi Systems</div>
+  <h1>Mobisync 5G Logger<br>Release Notes</h1>
+  <div class="rn-meta">
+    <span class="ver-chip">v4.0.5</span>
+    <span class="date-chip">June 2025</span>
+    <span class="edition-chip">Community Edition</span>
+  </div>
+</div>
+
+
+<!-- WHAT'S NEW -->
+<h2>What's New in v4.0.5</h2>
+
+<div class="new-item">
+  <span class="new-badge badge-new">NEW</span>
+  <div class="new-content">
+    <h4>Community Edition introduced</h4>
+    <p>The same binary now runs as Community Edition when no <code>license.lic</code> file is present. No separate download, no registration — plug in, run, see live RRC OTA in Wireshark immediately. Full feature access unlocks automatically when a valid <code>license.lic</code> is placed alongside the executable.</p>
+  </div>
+</div>
+
+<div class="new-item">
+  <span class="new-badge badge-new">NEW</span>
+  <div class="new-content">
+    <h4>Live RRC OTA decode — Community Edition</h4>
+    <p>Community Edition provides full RRC OTA decode: MIB, SIB1/SIBs, RRC Setup, RRC Reconfiguration, Security Mode, UE Capability, Paging and more — all streamed live into Wireshark via standard PCAP.</p>
+  </div>
+</div>
+
+<div class="new-item">
+  <span class="new-badge badge-imp">IMPROVED</span>
+  <div class="new-content">
+    <h4>Edition detection at startup</h4>
+    <p>The title bar now clearly identifies the running edition — <strong>MobiSync-SA-5G Logger: Community Edition</strong> or <strong>MobiSync-SA-5G Logger: Professional Edition</strong>. Log categories unavailable in Community are greyed out in the GUI rather than hidden.</p>
+  </div>
+</div>
+
+<div class="new-item">
+  <span class="new-badge badge-imp">IMPROVED</span>
+  <div class="new-content">
+    <h4>setup.sh — single-step dependency installer</h4>
+    <p>Installs ADB via <code>apt</code>, configures udev rules for phone detection, and verifies the environment in one step. Run once, then launch the binary directly on every subsequent session.</p>
+  </div>
+</div>
+
+
+<!-- EDITION COMPARISON -->
+<h2>Community vs Professional Edition</h2>
+<p>Both editions are distributed as the <strong>same binary</strong>. The edition that activates depends entirely on whether <code>license.lic</code> is present in the same folder.</p>
+
+<div class="edition-grid">
+  <div class="edition-col">
+    <div class="edition-col-title">
+      <span class="edition-col-name">Community Edition</span>
+      <span class="e-free">FREE</span>
+    </div>
+    <div class="feat-row"><span class="tick on">✓</span><span class="active">Live RRC OTA decode in Wireshark</span></div>
+    <div class="feat-row"><span class="tick on">✓</span><span class="active">No license file required</span></div>
+    <div class="feat-row"><span class="tick on">✓</span><span class="active">Ubuntu 22.04 / 24.04</span></div>
+    <div class="feat-row"><span class="tick off">✗</span><span>NAS message decode</span></div>
+    <div class="feat-row"><span class="tick off">✗</span><span>MAC / RLC / PDCP logging</span></div>
+    <div class="feat-row"><span class="tick off">✗</span><span>L1 physical layer measurements</span></div>
+    <div class="feat-row"><span class="tick off">✗</span><span>Live KPI windows</span></div>
+  </div>
+  <div class="edition-col">
+    <div class="edition-col-title">
+      <span class="edition-col-name">Professional Edition</span>
+      <span class="e-pro">PRO</span>
+    </div>
+    <div class="feat-row"><span class="tick on-b">✓</span><span class="active">Everything in Community</span></div>
+    <div class="feat-row"><span class="tick on-b">✓</span><span class="active">NAS SM/MM — plain + secured OTA</span></div>
+    <div class="feat-row"><span class="tick on-b">✓</span><span class="active">MAC / RLC / PDCP per-TTI capture</span></div>
+    <div class="feat-row"><span class="tick on-b">✓</span><span class="active">L1 — RSRP / SINR / CQI + neighbours</span></div>
+    <div class="feat-row"><span class="tick on-b">✓</span><span class="active">Live KPI windows (DL, SNR, UL, PDCP)</span></div>
+    <div class="feat-row"><span class="tick on-b">✓</span><span class="active">Ubuntu + Windows 10 / 11</span></div>
+  </div>
+</div>
+
+
+<!-- SYSTEM REQUIREMENTS -->
+<h2>System Requirements</h2>
+
+<table class="req-table">
+  <thead>
+    <tr><th>Component</th><th>Community Edition</th><th>Professional Edition</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>OS</td><td>Ubuntu 22.04 / 24.04 LTS</td><td>Ubuntu 22.04/24.04 · Windows 10/11</td></tr>
+    <tr><td>Wireshark</td><td colspan="2">4.4.2 or later (included dissectors required)</td></tr>
+    <tr><td>RAM</td><td colspan="2">4 GB minimum · 8 GB recommended</td></tr>
+    <tr><td>USB</td><td colspan="2">USB 2.0 or higher to phone</td></tr>
+    <tr><td>Chipset</td><td colspan="2">Qualcomm Snapdragon (DIAG interface required)</td></tr>
+    <tr><td>License</td><td>None required</td><td>license.lic in same folder as binary</td></tr>
+  </tbody>
+</table>
+
+<div class="note note-info" style="margin-top:14px">
+  <span class="note-icon">ℹ</span>
+  <div class="note-body"><strong>Chipset note:</strong> Mobisync requires the Qualcomm DIAG interface. MediaTek, Exynos, and Dimensity devices are not supported.</div>
+</div>
+
+
+<!-- SUPPORTED PHONES -->
+<h2>Validated Phones</h2>
+<p>The following Qualcomm-based models are validated. Other Snapdragon devices may work — Developer Options and USB Debugging must be enabled on all.</p>
+
+<table class="req-table">
+  <thead><tr><th>Brand</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>OnePlus</td><td>Most Snapdragon models; USB Debugging required</td></tr>
+    <tr><td>Quectel</td><td>5G modules fully supported</td></tr>
+    <tr><td>Xiaomi / POCO</td><td>Snapdragon variants; some models require root for DIAG</td></tr>
+    <tr><td>Samsung</td><td>Snapdragon variants (region-dependent); root may be required</td></tr>
+  </tbody>
+</table>
+
+<div class="note note-warn" style="margin-top:14px">
+  <span class="note-icon">⚠</span>
+  <div class="note-body"><strong>Root access:</strong> Most supported devices work without root. However some manufacturers lock the DIAG port in firmware — those devices require root. Developer Options and USB Debugging must be enabled in all cases.</div>
+</div>
+
+
+<!-- INSTALLATION — UBUNTU -->
+<h2>Installation — Ubuntu</h2>
+<p>Two files are included in this release. Download both into the same folder before proceeding.</p>
+
+<table class="req-table" style="margin-bottom:20px">
+  <thead><tr><th>File</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><code>mobisync_v4p0p5-5g-logger_community_edn</code></td><td>Main application binary (Community + Professional)</td></tr>
+    <tr><td><code>setup.sh</code></td><td>One-time dependency installer and environment setup</td></tr>
+  </tbody>
+</table>
+
+<div class="steps">
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>Enable Developer Options on the phone</h4>
+      <p>Go to <strong>Settings → About Phone</strong> and tap <strong>Build Number</strong> seven times. Then go to <strong>Settings → Developer Options</strong> and enable <strong>USB Debugging</strong>.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>Connect the phone via USB</h4>
+      <p>Use a USB data cable (not charge-only). When prompted on the phone, select <strong>File Transfer (MTP)</strong> mode and tap <strong>Allow</strong> on the USB Debugging authorisation dialog.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>Run setup.sh (once only)</h4>
+      <p>Open a terminal in the folder containing both files and run:</p>
+      <div class="code-block">
+<span class="comment"># Make executable and run</span>
+<span class="cmd">chmod +x setup.sh</span>
+<span class="cmd">./setup.sh</span>
+      </div>
+      <p>This installs ADB via <code>apt</code>, adds udev rules so the device is detected without root, and verifies your environment. A confirmation message is shown on success.</p>
+      <div class="note note-info" style="margin:8px 0 0">
+        <span class="note-icon">ℹ</span>
+        <div class="note-body">Run <code>setup.sh</code> only once per installation. All subsequent launches go straight to step 4.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h4>Launch Mobisync</h4>
+      <p>Make the binary executable and launch it:</p>
+      <div class="code-block">
+<span class="cmd">chmod +x mobisync_v4p0p5-5g-logger_community_edn</span>
+<span class="cmd">sudo ./mobisync_v4p0p5-5g-logger_community_edn</span>
+      </div>
+      <p>The title bar shows <strong>MobiSync-SA-5G Logger: Community Edition</strong> confirming no license was detected.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h4>Select log types and start logging</h4>
+      <p>In the <strong>RRC &amp; NAS Logs</strong> panel, check <strong>Enable NRSG RRC OTA in Wireshark</strong>. MAC, L1, and NAS options are greyed out in Community Edition.</p>
+      <p>Click <strong>Start Logging</strong>. Wireshark opens automatically and begins filling with live decoded RRC messages from the UE.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <h4>Stop logging</h4>
+      <p>Click <strong>Stop Logging</strong> in the Mobisync GUI. The Wireshark capture can be saved as a <code>.pcapng</code> file for offline analysis on any machine with Wireshark 4.4.2+ installed.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="note note-info" style="margin-top:20px">
+  <span class="note-icon">ℹ</span>
+  <div class="note-body">
+    <strong>Upgrading to Professional Edition:</strong> Obtain a <code>license.lic</code> file from
+    <a href="mailto:info@makemytechnology.com">info@makemytechnology.com</a>,
+    place it in the same folder as the binary, and relaunch. No reinstallation needed — the same binary activates the full feature set automatically.
+  </div>
+</div>
+
+
+<!-- KNOWN ISSUES -->
+<h2>Known Issues</h2>
+
+<div class="issue-list">
+  <div class="issue">
+    <div class="issue-dot"></div>
+    <div class="issue-text"><strong>Samsung / Xiaomi DIAG port locked:</strong> Some firmware variants lock the Qualcomm DIAG port. Root access is required on these devices to expose the port to ADB.</div>
+  </div>
+  <div class="issue">
+    <div class="issue-dot"></div>
+    <div class="issue-text"><strong>Wireshark version below 4.4.2:</strong> Older Wireshark builds are missing some 3GPP NR dissectors. Upgrade to 4.4.2 or later for complete RRC decode.</div>
+  </div>
+  <div class="issue">
+    <div class="issue-dot"></div>
+    <div class="issue-text"><strong>ADB device not detected after setup.sh:</strong> Unplug and replug the USB cable, or run <code>adb kill-server &amp;&amp; adb start-server</code> to reset the ADB daemon.</div>
+  </div>
+  <div class="issue">
+    <div class="issue-dot"></div>
+    <div class="issue-text"><strong>Single device only:</strong> Multi-device simultaneous capture is on the roadmap. Only one phone can be logged per session in v4.0.5.</div>
+  </div>
+</div>
+
+
+<!-- UPCOMING -->
+<h2>Roadmap — Upcoming Features</h2>
+<p>These features are in active development and will appear in future releases:</p>
+<div class="issue-list">
+  <div class="issue"><div class="issue-dot" style="background:var(--accent)"></div><div class="issue-text">AI-driven automatic fault identification</div></div>
+  <div class="issue"><div class="issue-dot" style="background:var(--accent)"></div><div class="issue-text">Drive test visualization with GPS tagging</div></div>
+  <div class="issue"><div class="issue-dot" style="background:var(--accent)"></div><div class="issue-text">Handover and cell reselection event correlation</div></div>
+  <div class="issue"><div class="issue-dot" style="background:var(--accent)"></div><div class="issue-text">Expanded PDCP / RLC deep analytics</div></div>
+  <div class="issue"><div class="issue-dot" style="background:var(--accent)"></div><div class="issue-text">Dynamic signal-flow visual graphs</div></div>
+  <div class="issue"><div class="issue-dot" style="background:var(--accent)"></div><div class="issue-text">Multi-device simultaneous capture</div></div>
+</div>
+
+
+<!-- FOOTER -->
+<div class="rn-footer">
+  <div>
+    <p><strong>MakeMyTechnology · BixBi Systems Pvt Ltd</strong></p>
+    <p>Visvesvaraya Technological University Regional Centre, Bengaluru</p>
+    <p style="margin-top:6px">
+      <a href="mailto:info@makemytechnology.com">info@makemytechnology.com</a> &nbsp;·&nbsp;
+      <a href="mailto:nj_contact@yahoo.com">nj_contact@yahoo.com</a> &nbsp;·&nbsp;
+      +91 63610 31970
+    </p>
+  </div>
+  <div>
+    <p><a href="https://www.linkedin.com/in/nitjain/" target="_blank" rel="noopener">LinkedIn — Nitin Jain ↗</a></p>
+    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScgfjohunyOemKoh6o7P4J34UoT6v8uIKG3AiFH7B7z56a48w/viewform?usp=sharing" target="_blank" rel="noopener">Apply for Professional trial →</a></p>
+  </div>
+</div>
+
+</body>
+</html>

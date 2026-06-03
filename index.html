@@ -10,141 +10,47 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --bg:       #07090f;
-  --surf:     #0e1119;
-  --surf2:    #141825;
-  --border:   rgba(56,200,160,0.14);
-  --border2:  rgba(56,200,160,0.28);
-  --accent:   #38c8a0;
-  --blue:     #4a9eff;
-  --text:     #dce8f8;
-  --sub:      #8899b4;
-  --sans:     'Inter', system-ui, sans-serif;
-  --mono:     'JetBrains Mono', monospace;
+  --bg: #07090f; --surf: #0e1119; --surf2: #141825;
+  --border: rgba(56,200,160,0.14); --border2: rgba(56,200,160,0.28);
+  --accent: #38c8a0; --blue: #4a9eff;
+  --text: #dce8f8; --sub: #8899b4;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
 }
-
 html { scroll-behavior: smooth; }
+body { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--text); background: var(--bg); overflow-x: hidden; }
 
-body {
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text);
-  background: var(--bg);
-  overflow-x: hidden;
-}
-
-/* ── NAV ─────────────────────────── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  height: 56px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 2rem;
-  background: rgba(7,9,15,0.90);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.logo {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 16px; font-weight: 700; color: var(--text);
-  text-decoration: none; letter-spacing: -0.2px;
-}
-.logo-icon {
-  width: 30px; height: 30px; border-radius: 7px;
-  background: var(--accent);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-size: 10px; font-weight: 500; color: #02201a;
-  letter-spacing: 0;
-}
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(7,9,15,0.90); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.logo { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.2px; }
+.logo-icon { width: 30px; height: 30px; border-radius: 7px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 10px; font-weight: 500; color: #02201a; }
 .logo span { color: var(--accent); }
 .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-.nav-links a {
-  color: var(--sub); text-decoration: none;
-  font-size: 13px; font-weight: 500;
-  transition: color 0.15s;
-}
+.nav-links a { color: var(--sub); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.15s; }
 .nav-links a:hover { color: var(--text); }
-.nav-btn {
-  background: var(--accent); color: #02201a;
-  font-family: var(--sans); font-size: 13px; font-weight: 600;
-  padding: 7px 16px; border-radius: 6px;
-  text-decoration: none; transition: opacity 0.15s;
-}
+.nav-btn { background: var(--accent); color: #02201a; font-family: var(--sans); font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 6px; text-decoration: none; transition: opacity 0.15s; }
 .nav-btn:hover { opacity: 0.85; }
 
-/* ── HERO ─────────────────────────── */
-.hero {
-  padding: 120px 2rem 80px;
-  display: flex; flex-direction: column; align-items: center;
-  text-align: center;
-}
-.pill {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: rgba(56,200,160,0.08); border: 1px solid var(--border2);
-  color: var(--accent); font-family: var(--mono); font-size: 11px;
-  padding: 4px 13px; border-radius: 20px; margin-bottom: 28px;
-}
+/* HERO */
+.hero { padding: 120px 2rem 80px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(56,200,160,0.08); border: 1px solid var(--border2); color: var(--accent); font-family: var(--mono); font-size: 11px; padding: 4px 13px; border-radius: 20px; margin-bottom: 28px; }
 .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-
-h1 {
-  font-size: clamp(34px, 5vw, 60px);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -1.5px;
-  color: var(--text);
-  max-width: 780px;
-  margin-bottom: 20px;
-}
+h1 { font-size: clamp(34px, 5vw, 60px); font-weight: 700; line-height: 1.12; letter-spacing: -1.5px; color: var(--text); max-width: 780px; margin-bottom: 20px; }
 h1 em { font-style: normal; color: var(--accent); }
-
-.hero-lead {
-  font-size: 17px;
-  color: var(--sub);
-  max-width: 520px;
-  line-height: 1.65;
-  margin-bottom: 32px;
-}
-
-.hero-flow {
-  display: flex; align-items: center; gap: 6px;
-  font-family: var(--mono); font-size: 12px; color: var(--sub);
-  background: var(--surf); border: 1px solid var(--border);
-  border-radius: 8px; padding: 10px 18px;
-  margin-bottom: 32px; flex-wrap: wrap; justify-content: center;
-}
+.hero-lead { font-size: 17px; color: var(--sub); max-width: 520px; line-height: 1.65; margin-bottom: 32px; }
+.hero-flow { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 12px; color: var(--sub); background: var(--surf); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; }
 .hero-flow strong { color: var(--accent); font-weight: 500; }
 .hero-flow-sep { color: var(--border2); font-size: 16px; }
-
 .btn-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-.btn-primary {
-  background: var(--accent); color: #02201a;
-  font-size: 14px; font-weight: 600;
-  padding: 12px 24px; border-radius: 7px;
-  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-  transition: opacity 0.15s, transform 0.1s;
-}
+.btn-primary { background: var(--accent); color: #02201a; font-size: 14px; font-weight: 600; padding: 12px 24px; border-radius: 7px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.15s, transform 0.1s; }
 .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-.btn-ghost {
-  background: transparent; border: 1px solid rgba(220,232,248,0.15);
-  color: var(--text); font-size: 14px; font-weight: 500;
-  padding: 12px 24px; border-radius: 7px;
-  text-decoration: none; transition: border-color 0.15s;
-}
+.btn-ghost { background: transparent; border: 1px solid rgba(220,232,248,0.15); color: var(--text); font-size: 14px; font-weight: 500; padding: 12px 24px; border-radius: 7px; text-decoration: none; transition: border-color 0.15s; }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ── STACK ─────────────────────────── */
-.stack-wrap {
-  width: 100%; max-width: 540px;
-  margin: 56px auto 0;
-  display: flex; flex-direction: column; gap: 3px;
-  font-family: var(--mono); font-size: 12px;
-}
-.stack-row {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 16px; border-radius: 5px; border: 1px solid;
-}
+/* STACK */
+.stack-wrap { width: 100%; max-width: 540px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 3px; font-family: var(--mono); font-size: 12px; }
+.stack-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; border-radius: 5px; border: 1px solid; }
 .stack-row:nth-child(1) { background: rgba(56,200,160,0.10); border-color: rgba(56,200,160,0.32); color: var(--accent); }
 .stack-row:nth-child(2) { background: rgba(56,200,160,0.07); border-color: rgba(56,200,160,0.22); color: #65d4b2; }
 .stack-row:nth-child(3) { background: rgba(74,158,255,0.08); border-color: rgba(74,158,255,0.26); color: var(--blue); }
@@ -156,175 +62,156 @@ h1 em { font-style: normal; color: var(--accent); }
 .blink { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.6; animation: blink 2s infinite; }
 @keyframes blink { 0%,100%{opacity:0.4} 50%{opacity:1} }
 
-/* ── KPI ROW ─────────────────────────── */
-.kpi-row {
-  display: grid; grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  background: var(--border); gap: 1px;
-}
+/* KPI ROW */
+.kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--border); gap: 1px; }
 .kpi-cell { background: var(--surf); padding: 20px 22px; }
 .kpi-label { font-family: var(--mono); font-size: 10px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
 .kpi-val { font-family: var(--mono); font-size: 22px; font-weight: 500; color: var(--accent); line-height: 1; }
 .kpi-desc { font-size: 11px; color: var(--sub); margin-top: 5px; }
-.kpi-badge {
-  display: inline-block; font-family: var(--mono); font-size: 10px;
-  background: rgba(56,200,160,0.12); color: var(--accent);
-  border: 1px solid rgba(56,200,160,0.28); border-radius: 10px;
-  padding: 2px 9px; margin-top: 5px;
-}
+.kpi-badge { display: inline-block; font-family: var(--mono); font-size: 10px; background: rgba(56,200,160,0.12); color: var(--accent); border: 1px solid rgba(56,200,160,0.28); border-radius: 10px; padding: 2px 9px; margin-top: 5px; }
 
-/* ── SECTIONS ─────────────────────────── */
+/* SECTIONS */
 .section { max-width: 1060px; margin: 0 auto; padding: 72px 2rem; }
 .eyebrow { font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 12px; }
 h2 { font-size: clamp(22px, 3vw, 36px); font-weight: 700; letter-spacing: -0.8px; color: var(--text); margin-bottom: 10px; line-height: 1.2; }
 .section-sub { font-size: 15px; color: var(--sub); max-width: 480px; line-height: 1.65; margin-bottom: 36px; }
 
-/* ── FEATURES ─────────────────────────── */
-.feat-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1px; background: var(--border);
-  border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-}
-.feat-card {
-  background: var(--surf); padding: 26px 24px;
-  transition: background 0.15s;
-}
+/* FEATURES */
+.feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.feat-card { background: var(--surf); padding: 26px 24px; transition: background 0.15s; }
 .feat-card:hover { background: var(--surf2); }
-.feat-icon {
-  width: 36px; height: 36px; border-radius: 7px;
-  background: rgba(56,200,160,0.09); border: 1px solid rgba(56,200,160,0.22);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--accent);
-  margin-bottom: 14px;
-}
+.feat-icon { width: 36px; height: 36px; border-radius: 7px; background: rgba(56,200,160,0.09); border: 1px solid rgba(56,200,160,0.22); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--accent); margin-bottom: 14px; }
 .feat-card h3 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
 .feat-card p { font-size: 13px; color: var(--sub); line-height: 1.65; }
 
-/* ── ADVANTAGES ─────────────────────────── */
+/* ADVANTAGES */
 .adv-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-.adv-table th {
-  font-family: var(--mono); font-size: 10px; text-transform: uppercase;
-  letter-spacing: 0.12em; color: var(--sub); padding: 10px 16px;
-  text-align: left; border-bottom: 1px solid var(--border);
-}
+.adv-table th { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sub); padding: 10px 16px; text-align: left; border-bottom: 1px solid var(--border); }
 .adv-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
 .adv-table tr:last-child td { border-bottom: none; }
 .adv-table tr:hover td { background: var(--surf2); }
-.tag {
-  display: inline-block; font-family: var(--mono); font-size: 11px;
-  background: rgba(56,200,160,0.08); color: var(--accent);
-  border: 1px solid rgba(56,200,160,0.22); border-radius: 5px;
-  padding: 3px 9px; margin-bottom: 4px;
-}
+.tag { display: inline-block; font-family: var(--mono); font-size: 11px; background: rgba(56,200,160,0.08); color: var(--accent); border: 1px solid rgba(56,200,160,0.22); border-radius: 5px; padding: 3px 9px; margin-bottom: 4px; }
 .adv-sub { font-size: 12px; color: var(--sub); margin-top: 3px; }
 .adv-table td:last-child { font-size: 13px; color: var(--sub); }
 
-/* ── USE CASES ─────────────────────────── */
+/* USE CASES */
 .use-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-.use-card {
-  background: var(--surf); border: 1px solid var(--border);
-  border-radius: 9px; padding: 22px 20px;
-  transition: border-color 0.15s;
-}
+.use-card { background: var(--surf); border: 1px solid var(--border); border-radius: 9px; padding: 22px 20px; transition: border-color 0.15s; }
 .use-card:hover { border-color: var(--border2); }
 .use-num { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 8px; }
 .use-card h3 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
 .use-card p { font-size: 13px; color: var(--sub); line-height: 1.6; }
 
-/* ── TAGS ─────────────────────────── */
+/* TAGS */
 .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.tag-phone {
-  font-family: var(--mono); font-size: 12px;
-  background: rgba(74,158,255,0.08); color: var(--blue);
-  border: 1px solid rgba(74,158,255,0.22); border-radius: 5px;
-  padding: 4px 12px;
-}
-.tag-platform {
-  font-family: var(--mono); font-size: 12px;
-  background: rgba(56,200,160,0.07); color: var(--accent);
-  border: 1px solid var(--border2); border-radius: 5px;
-  padding: 4px 12px;
-}
+.tag-phone { font-family: var(--mono); font-size: 12px; background: rgba(74,158,255,0.08); color: var(--blue); border: 1px solid rgba(74,158,255,0.22); border-radius: 5px; padding: 4px 12px; }
+.tag-platform { font-family: var(--mono); font-size: 12px; background: rgba(56,200,160,0.07); color: var(--accent); border: 1px solid var(--border2); border-radius: 5px; padding: 4px 12px; }
 
-/* ── ROADMAP ─────────────────────────── */
+/* ROADMAP */
 .roadmap { border: 1px solid var(--border); border-radius: 9px; overflow: hidden; }
-.roadmap-item {
-  display: flex; align-items: center; gap: 14px;
-  padding: 15px 20px; border-bottom: 1px solid var(--border);
-  font-size: 14px; color: var(--sub); transition: background 0.15s;
-}
+.roadmap-item { display: flex; align-items: center; gap: 14px; padding: 15px 20px; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--sub); transition: background 0.15s; }
 .roadmap-item:last-child { border-bottom: none; }
 .roadmap-item:hover { background: var(--surf2); color: var(--text); }
 .rdot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.4; flex-shrink: 0; }
 
-/* ── DOWNLOAD ─────────────────────────── */
+/* ── DOWNLOAD SECTION ── */
 .dl-section { background: var(--surf); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .dl-inner { max-width: 1060px; margin: 0 auto; padding: 64px 2rem; }
-.dl-card {
-  display: flex; gap: 3rem; align-items: flex-start; flex-wrap: wrap;
-  background: var(--surf2); border: 1px solid var(--border2);
-  border-radius: 12px; padding: 36px 32px;
+.dl-card { background: var(--surf2); border: 1px solid var(--border2); border-radius: 12px; padding: 36px 32px; }
+
+/* release meta bar */
+.release-meta {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 28px; padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
 }
-.dl-left { flex: 1; min-width: 260px; }
-.dl-left h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 10px; }
-.dl-left p { font-size: 14px; color: var(--sub); line-height: 1.65; margin-bottom: 16px; }
-.ver-chip {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--mono); font-size: 11px; color: var(--sub);
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10);
-  padding: 4px 10px; border-radius: 4px;
+.release-version {
+  font-family: var(--mono); font-size: 13px; font-weight: 500;
+  color: var(--accent); background: rgba(56,200,160,0.10);
+  border: 1px solid var(--border2); border-radius: 5px; padding: 4px 12px;
 }
+.release-date { font-family: var(--mono); font-size: 12px; color: var(--sub); }
+.release-notes-link { font-family: var(--mono); font-size: 12px; color: var(--blue); text-decoration: none; margin-left: auto; }
+.release-notes-link:hover { text-decoration: underline; }
+
+/* asset buttons grid */
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.asset-btn {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px; border-radius: 8px;
+  text-decoration: none; border: 1px solid;
+  transition: opacity 0.15s, transform 0.1s;
+  cursor: pointer;
+}
+.asset-btn:hover { opacity: 0.82; transform: translateY(-1px); }
+.asset-btn.win { background: rgba(56,200,160,0.08); border-color: rgba(56,200,160,0.28); }
+.asset-btn.lin { background: rgba(74,158,255,0.08); border-color: rgba(74,158,255,0.26); }
+.asset-btn.other { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.10); }
+.asset-icon { font-size: 22px; flex-shrink: 0; }
+.asset-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.asset-name { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.asset-btn.win .asset-name { color: var(--accent); }
+.asset-btn.lin .asset-name { color: var(--blue); }
+.asset-btn.other .asset-name { color: var(--text); }
+.asset-meta { font-family: var(--mono); font-size: 11px; color: var(--sub); }
+
+/* loading / empty states */
+.dl-state {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 40px 20px; gap: 12px; text-align: center;
+}
+.dl-state-icon { font-size: 28px; }
+.dl-state-title { font-size: 15px; font-weight: 600; color: var(--text); }
+.dl-state-sub { font-size: 13px; color: var(--sub); line-height: 1.6; max-width: 360px; }
+.spinner {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid rgba(56,200,160,0.2);
+  border-top-color: var(--accent);
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* requirements */
 .req-list { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 7px; }
 .req-list li { display: flex; align-items: baseline; gap: 8px; font-size: 13px; color: var(--sub); }
 .req-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
 
-.dl-right { display: flex; flex-direction: column; gap: 10px; min-width: 210px; }
-.dl-btn {
-  display: flex; align-items: center; gap: 12px;
-  padding: 13px 18px; border-radius: 7px;
-  text-decoration: none; font-size: 14px; font-weight: 500;
-  border: 1px solid; transition: opacity 0.15s, transform 0.1s;
+/* trial link */
+.trial-link-row { margin-top: 16px; text-align: center; }
+.trial-link {
+  font-family: var(--mono); font-size: 12px; color: var(--sub);
+  text-decoration: none; border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 6px; padding: 8px 18px; display: inline-block;
+  transition: border-color 0.15s, color 0.15s;
 }
-.dl-btn:hover { opacity: 0.80; transform: translateY(-1px); }
-.dl-btn.win { background: rgba(56,200,160,0.09); border-color: rgba(56,200,160,0.30); color: var(--accent); }
-.dl-btn.lin { background: rgba(74,158,255,0.09); border-color: rgba(74,158,255,0.28); color: var(--blue); }
-.dl-btn.form { background: transparent; border-color: rgba(220,232,248,0.12); color: var(--sub); justify-content: center; font-size: 13px; }
-.dl-btn.form:hover { border-color: var(--border2); color: var(--accent); }
-.dl-icon { font-size: 18px; }
-.dl-meta { display: flex; flex-direction: column; gap: 2px; }
-.dl-sub { font-family: var(--mono); font-size: 10px; color: var(--sub); font-weight: 400; }
+.trial-link:hover { border-color: var(--border2); color: var(--accent); }
 
-/* ── CONTACT ─────────────────────────── */
+/* CONTACT */
 .contact-wrap { max-width: 1060px; margin: 0 auto; padding: 56px 2rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
 .contact-left h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
 .contact-left p { font-size: 14px; color: var(--sub); line-height: 1.65; }
 .contact-left a { color: var(--accent); text-decoration: none; }
 .contact-left a:hover { text-decoration: underline; }
 .contact-links { display: flex; flex-direction: column; gap: 10px; }
-.clink {
-  display: flex; align-items: center; gap: 9px;
-  font-family: var(--mono); font-size: 12px; color: var(--sub);
-  text-decoration: none; transition: color 0.15s;
-}
+.clink { display: flex; align-items: center; gap: 9px; font-family: var(--mono); font-size: 12px; color: var(--sub); text-decoration: none; transition: color 0.15s; }
 .clink:hover { color: var(--accent); }
 .clink-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: 0.45; }
 
-/* ── FOOTER ─────────────────────────── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 20px 2rem;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 10px;
-}
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 20px 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 footer p { font-size: 12px; color: var(--sub); }
 footer a { color: var(--accent); text-decoration: none; }
 
-/* ── RESPONSIVE ─────────────────────────── */
+/* RESPONSIVE */
 @media (max-width: 680px) {
   .nav-links { display: none; }
   .kpi-row { grid-template-columns: repeat(2, 1fr); }
   .kpi-row .kpi-cell:last-child { grid-column: span 2; }
-  .dl-card { flex-direction: column; }
   .contact-wrap { flex-direction: column; }
 }
 </style>
@@ -349,13 +236,8 @@ footer a { color: var(--accent); text-decoration: none; }
 <!-- HERO -->
 <section class="hero">
   <div class="pill"><div class="pill-dot"></div>MakeMyTechnology · BixBi Systems · Bengaluru</div>
-
   <h1>See what your 5G UE sees — <em>instantly.</em></h1>
-
-  <p class="hero-lead">
-    A lightweight tool that connects to your COTS 5G smartphone over USB and streams live decoded protocol logs directly into Wireshark. No dongles, no vendor lock-in.
-  </p>
-
+  <p class="hero-lead">A lightweight tool that connects to your COTS 5G smartphone over USB and streams live decoded protocol logs directly into Wireshark. No dongles, no vendor lock-in.</p>
   <div class="hero-flow">
     <strong>Plug</strong> USB
     <span class="hero-flow-sep">→</span>
@@ -363,15 +245,13 @@ footer a { color: var(--accent); text-decoration: none; }
     <span class="hero-flow-sep">→</span>
     <strong>View</strong> live 5G in Wireshark
   </div>
-
   <div class="btn-row">
     <a href="#download" class="btn-primary">
       <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8 1a.5.5 0 0 1 .5.5v7.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 9.293V1.5A.5.5 0 0 1 8 1zm-5 11.5a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H3z"/></svg>
-      Request Trial License
+      Download Latest Release
     </a>
     <a href="#features" class="btn-ghost">See Features</a>
   </div>
-
   <div class="stack-wrap">
     <div class="stack-row"><span class="stack-tag">RRC</span><span class="stack-desc">Radio Resource Control — Setup, Reconfig, Paging</span><div class="blink"></div></div>
     <div class="stack-row"><span class="stack-tag">NAS</span><span class="stack-desc">Non-Access Stratum — SM/MM, decrypted PDUs</span><div class="blink"></div></div>
@@ -384,31 +264,11 @@ footer a { color: var(--accent); text-decoration: none; }
 
 <!-- KPI ROW -->
 <div class="kpi-row">
-  <div class="kpi-cell">
-    <div class="kpi-label">RSRP</div>
-    <div class="kpi-val">–82 dBm</div>
-    <div class="kpi-desc">Reference signal power</div>
-  </div>
-  <div class="kpi-cell">
-    <div class="kpi-label">SINR</div>
-    <div class="kpi-val">18.4 dB</div>
-    <div class="kpi-desc">Signal quality</div>
-  </div>
-  <div class="kpi-cell">
-    <div class="kpi-label">DL Throughput</div>
-    <div class="kpi-val">847 Mbps</div>
-    <div class="kpi-desc">Peak downlink</div>
-  </div>
-  <div class="kpi-cell">
-    <div class="kpi-label">RRC State</div>
-    <div class="kpi-badge">CONNECTED</div>
-    <div class="kpi-desc">NR SA · live</div>
-  </div>
-  <div class="kpi-cell">
-    <div class="kpi-label">Cell NCI</div>
-    <div class="kpi-val" style="font-size:17px;padding-top:4px">0x1A2F</div>
-    <div class="kpi-desc">Serving cell identity</div>
-  </div>
+  <div class="kpi-cell"><div class="kpi-label">RSRP</div><div class="kpi-val">–82 dBm</div><div class="kpi-desc">Reference signal power</div></div>
+  <div class="kpi-cell"><div class="kpi-label">SINR</div><div class="kpi-val">18.4 dB</div><div class="kpi-desc">Signal quality</div></div>
+  <div class="kpi-cell"><div class="kpi-label">DL Throughput</div><div class="kpi-val">847 Mbps</div><div class="kpi-desc">Peak downlink</div></div>
+  <div class="kpi-cell"><div class="kpi-label">RRC State</div><div class="kpi-badge">CONNECTED</div><div class="kpi-desc">NR SA · live</div></div>
+  <div class="kpi-cell"><div class="kpi-label">Cell NCI</div><div class="kpi-val" style="font-size:17px;padding-top:4px">0x1A2F</div><div class="kpi-desc">Serving cell identity</div></div>
 </div>
 
 <!-- FEATURES -->
@@ -417,36 +277,12 @@ footer a { color: var(--accent); text-decoration: none; }
   <h2>Full protocol stack. Live. In Wireshark.</h2>
   <p class="section-sub">No export, no conversion, no waiting. Messages decode the moment they arrive over USB.</p>
   <div class="feat-grid">
-    <div class="feat-card">
-      <div class="feat-icon">RRC</div>
-      <h3>RRC + NAS Decode</h3>
-      <p>Full OTA decode — MIB, SIB1, RRC Setup, Security, UE Capability, Reconfig, Paging. NAS SM/MM messages including decrypted PDUs streamed live.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">MAC</div>
-      <h3>MAC / RLC Analytics</h3>
-      <p>RACH Trigger and Msg1–Msg4 detail, PDSCH Stats, UL TB Stats, UL BSR, CSI Reports, RLC DL — slot-by-slot scheduler visibility.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">L1</div>
-      <h3>Physical Layer KPIs</h3>
-      <p>Cell Search updates, RSRP/RSRQ/SNR for serving and neighbour cells, UL PHY channels — PUSCH, PUCCH, SRS — all live.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">GUI</div>
-      <h3>Clean PyQt Interface</h3>
-      <p>Select exactly which log categories to enable — MAC, RRC, NAS, L1 — and hit Start. Wireshark opens and fills instantly.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">LUA</div>
-      <h3>Lua Extensibility</h3>
-      <p>Plug in your own Wireshark Lua dissectors for vendor-specific or proprietary message formats. Full filter compatibility.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">PCAP</div>
-      <h3>Live + Offline Logging</h3>
-      <p>Choose real-time Wireshark streaming or pcap dump for offline replay. Ubuntu 22.04/24.04, Windows, and Raspberry Pi supported.</p>
-    </div>
+    <div class="feat-card"><div class="feat-icon">RRC</div><h3>RRC + NAS Decode</h3><p>Full OTA decode — MIB, SIB1, RRC Setup, Security, UE Capability, Reconfig, Paging. NAS SM/MM messages including decrypted PDUs streamed live.</p></div>
+    <div class="feat-card"><div class="feat-icon">MAC</div><h3>MAC / RLC Analytics</h3><p>RACH Trigger and Msg1–Msg4 detail, PDSCH Stats, UL TB Stats, UL BSR, CSI Reports, RLC DL — slot-by-slot scheduler visibility.</p></div>
+    <div class="feat-card"><div class="feat-icon">L1</div><h3>Physical Layer KPIs</h3><p>Cell Search updates, RSRP/RSRQ/SNR for serving and neighbour cells, UL PHY channels — PUSCH, PUCCH, SRS — all live.</p></div>
+    <div class="feat-card"><div class="feat-icon">GUI</div><h3>Clean PyQt Interface</h3><p>Select exactly which log categories to enable — MAC, RRC, NAS, L1 — and hit Start. Wireshark opens and fills instantly.</p></div>
+    <div class="feat-card"><div class="feat-icon">LUA</div><h3>Lua Extensibility</h3><p>Plug in your own Wireshark Lua dissectors for vendor-specific or proprietary message formats. Full filter compatibility.</p></div>
+    <div class="feat-card"><div class="feat-icon">PCAP</div><h3>Live + Offline Logging</h3><p>Choose real-time Wireshark streaming or pcap dump for offline replay. Ubuntu 22.04/24.04, Windows, and Raspberry Pi supported.</p></div>
   </div>
 </section>
 
@@ -457,34 +293,14 @@ footer a { color: var(--accent); text-decoration: none; }
   <h2>What traditional tools cannot do.</h2>
   <p class="section-sub">Enterprise protocol loggers require costly dongles, proprietary drivers, and an export-then-decode step. Mobisync does it in seconds.</p>
   <table class="adv-table">
-    <thead>
-      <tr><th>Capability</th><th>What it means for you</th></tr>
-    </thead>
+    <thead><tr><th>Capability</th><th>What it means for you</th></tr></thead>
     <tbody>
-      <tr>
-        <td><div class="tag">True live Wireshark decode</div><div class="adv-sub">OTA messages decoded instantly — no export or conversion</div></td>
-        <td>Faster resolution of attach failures and gNB bugs</td>
-      </tr>
-      <tr>
-        <td><div class="tag">COTS phone, no root required*</div><div class="adv-sub">No custom modem firmware for supported models</div></td>
-        <td>Zero extra hardware cost beyond the phone you already have</td>
-      </tr>
-      <tr>
-        <td><div class="tag">Single lightweight executable</div><div class="adv-sub">No bloated SDKs or complex installation</div></td>
-        <td>Deploy in minutes, share with your whole team</td>
-      </tr>
-      <tr>
-        <td><div class="tag">Cross-platform</div><div class="adv-sub">Ubuntu 22.04/24.04, Windows, Raspberry Pi</div></td>
-        <td>Fits your lab, your laptop, and your field kit</td>
-      </tr>
-      <tr>
-        <td><div class="tag">Affordable licensing</div><div class="adv-sub">No yearly renewals, no vendor lock-in</div></td>
-        <td>Pay only for the 5G capabilities you actually use</td>
-      </tr>
-      <tr>
-        <td><div class="tag">Lua dissector support</div><div class="adv-sub">Extend with your own Wireshark plugins</div></td>
-        <td>Adapt to proprietary or vendor-specific message formats</td>
-      </tr>
+      <tr><td><div class="tag">True live Wireshark decode</div><div class="adv-sub">OTA messages decoded instantly — no export or conversion</div></td><td>Faster resolution of attach failures and gNB bugs</td></tr>
+      <tr><td><div class="tag">COTS phone, no root required*</div><div class="adv-sub">No custom modem firmware for supported models</div></td><td>Zero extra hardware cost beyond the phone you already have</td></tr>
+      <tr><td><div class="tag">Single lightweight executable</div><div class="adv-sub">No bloated SDKs or complex installation</div></td><td>Deploy in minutes, share with your whole team</td></tr>
+      <tr><td><div class="tag">Cross-platform</div><div class="adv-sub">Ubuntu 22.04/24.04, Windows, Raspberry Pi</div></td><td>Fits your lab, your laptop, and your field kit</td></tr>
+      <tr><td><div class="tag">Affordable licensing</div><div class="adv-sub">No yearly renewals, no vendor lock-in</div></td><td>Pay only for the 5G capabilities you actually use</td></tr>
+      <tr><td><div class="tag">Lua dissector support</div><div class="adv-sub">Extend with your own Wireshark plugins</div></td><td>Adapt to proprietary or vendor-specific message formats</td></tr>
     </tbody>
   </table>
   <p style="font-size:12px;color:var(--sub);margin-top:12px;font-family:var(--mono)">* Root required for some models. Rooted phones also fully supported.</p>
@@ -497,44 +313,18 @@ footer a { color: var(--accent); text-decoration: none; }
   <h2>Every phase of 5G development.</h2>
   <p class="section-sub">From initial gNB bring-up to field diagnostics.</p>
   <div class="use-grid">
-    <div class="use-card">
-      <div class="use-num">01 · BRING-UP</div>
-      <h3>Network Bring-Up</h3>
-      <p>See instantly if the UE is stuck at MIB, SIB, RRC Setup, or Security stage. Detect attach and registration failures in real time.</p>
-    </div>
-    <div class="use-card">
-      <div class="use-num">02 · TUNING</div>
-      <h3>RAN Exploration & Tuning</h3>
-      <p>Validate RAN and core parameter changes on the spot. Confirm UE capability negotiation, reconfig responses, and security setups.</p>
-    </div>
-    <div class="use-card">
-      <div class="use-num">03 · DEVELOPMENT</div>
-      <h3>Feature Dev & Testing</h3>
-      <p>Debug handovers, cell selection and reselection, and advanced features. Correlate UE traces with gNB logs slot-by-slot.</p>
-    </div>
-    <div class="use-card">
-      <div class="use-num">04 · FIELD</div>
-      <h3>Field Diagnostics</h3>
-      <p>Instant insight into why a UE is not attaching or hitting throughput targets. USB-based — fits into your drive-test or demo kit.</p>
-    </div>
+    <div class="use-card"><div class="use-num">01 · BRING-UP</div><h3>Network Bring-Up</h3><p>See instantly if the UE is stuck at MIB, SIB, RRC Setup, or Security stage. Detect attach and registration failures in real time.</p></div>
+    <div class="use-card"><div class="use-num">02 · TUNING</div><h3>RAN Exploration & Tuning</h3><p>Validate RAN and core parameter changes on the spot. Confirm UE capability negotiation, reconfig responses, and security setups.</p></div>
+    <div class="use-card"><div class="use-num">03 · DEVELOPMENT</div><h3>Feature Dev & Testing</h3><p>Debug handovers, cell selection and reselection, and advanced features. Correlate UE traces with gNB logs slot-by-slot.</p></div>
+    <div class="use-card"><div class="use-num">04 · FIELD</div><h3>Field Diagnostics</h3><p>Instant insight into why a UE is not attaching or hitting throughput targets. USB-based — fits into your drive-test or demo kit.</p></div>
   </div>
-
   <div style="margin-top:36px">
     <div class="eyebrow" style="margin-bottom:8px">Supported phones</div>
-    <div class="tag-row">
-      <span class="tag-phone">OnePlus</span>
-      <span class="tag-phone">Quectel</span>
-      <span class="tag-phone">Xiaomi / POCO</span>
-      <span class="tag-phone">Samsung</span>
-    </div>
+    <div class="tag-row"><span class="tag-phone">OnePlus</span><span class="tag-phone">Quectel</span><span class="tag-phone">Xiaomi / POCO</span><span class="tag-phone">Samsung</span></div>
   </div>
   <div style="margin-top:24px">
     <div class="eyebrow" style="margin-bottom:8px">Supported platforms</div>
-    <div class="tag-row">
-      <span class="tag-platform">Ubuntu 22.04 / 24.04</span>
-      <span class="tag-platform">Windows 10 / 11</span>
-      <span class="tag-platform">Raspberry Pi (offline)</span>
-    </div>
+    <div class="tag-row"><span class="tag-platform">Ubuntu 22.04 / 24.04</span><span class="tag-platform">Windows 10 / 11</span><span class="tag-platform">Raspberry Pi (offline)</span></div>
   </div>
 </section>
 
@@ -557,40 +347,106 @@ footer a { color: var(--accent); text-decoration: none; }
 <!-- DOWNLOAD -->
 <div class="dl-section" id="download">
   <div class="dl-inner">
-    <div class="eyebrow" style="margin-bottom:8px">Get started</div>
-    <h2 style="margin-bottom:28px">Download or request a trial.</h2>
-    <div class="dl-card">
-      <div class="dl-left">
-        <h3>Mobisync-5G Logger</h3>
-        <p>Lightweight and cross-platform. Connects to your COTS 5G smartphone over USB and streams live protocol logs directly into Wireshark. No cloud, no dongles.</p>
-        <div class="ver-chip">v1.0 · Latest stable</div>
-        <ul class="req-list">
-          <li>USB connection to a supported COTS 5G smartphone</li>
-          <li>Wireshark installed on the host machine</li>
-          <li>Ubuntu 22.04/24.04, Windows 10/11, or Raspberry Pi</li>
-          <li>4 GB RAM recommended</li>
-        </ul>
+    <div class="eyebrow" style="margin-bottom:8px">Download</div>
+    <h2 style="margin-bottom:6px">Choose your edition.</h2>
+    <p style="font-size:14px;color:var(--sub);margin-bottom:32px">
+      Community Edition is free with no license needed. Professional Edition unlocks the full protocol stack.
+    </p>
+
+    <!-- Edition comparison strip -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:32px">
+
+      <!-- COMMUNITY CARD -->
+      <div class="dl-card" style="border-color:rgba(56,200,160,0.35);position:relative">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <div>
+            <div style="font-family:var(--mono);font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:4px">Community Edition</div>
+            <div style="font-size:18px;font-weight:700;letter-spacing:-0.3px">Free forever</div>
+          </div>
+          <div style="background:rgba(56,200,160,0.12);border:1px solid rgba(56,200,160,0.3);color:var(--accent);font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:4px">FREE</div>
+        </div>
+
+        <!-- what's included -->
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border)">
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--accent);font-size:14px">✓</span> Live RRC OTA decode in Wireshark</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--accent);font-size:14px">✓</span> No license file required</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--accent);font-size:14px">✓</span> Ubuntu 22.04 / 24.04</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--sub)"><span style="color:var(--sub);font-size:14px">✗</span> NAS, MAC, RLC, L1 logs</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--sub)"><span style="color:var(--sub);font-size:14px">✗</span> Live KPI windows</div>
+        </div>
+
+        <!-- dynamic community assets -->
+        <div id="community-assets">
+          <div class="dl-state" style="padding:20px 0">
+            <div class="spinner"></div>
+            <div class="dl-state-title" style="font-size:13px">Fetching release…</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Perfect for</div>
+          <div style="font-size:12px;color:var(--sub);line-height:1.6">Academic researchers · Open-source RAN developers · 5G learners · First-time users</div>
+        </div>
       </div>
-      <div class="dl-right">
-        <a href="mailto:info@makemytechnology.com?subject=Mobisync-5G Logger — Windows Download Request" class="dl-btn win">
-          <span class="dl-icon">⊞</span>
-          <div class="dl-meta">
-            <span>Windows Installer</span>
-            <span class="dl-sub">.exe · 64-bit · contact for link</span>
+
+      <!-- PROFESSIONAL CARD -->
+      <div class="dl-card" style="border-color:rgba(74,158,255,0.35);position:relative">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <div>
+            <div style="font-family:var(--mono);font-size:10px;color:var(--blue);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:4px">Professional Edition</div>
+            <div style="font-size:18px;font-weight:700;letter-spacing:-0.3px">Full stack access</div>
           </div>
-        </a>
-        <a href="mailto:info@makemytechnology.com?subject=Mobisync-5G Logger — Linux Download Request" class="dl-btn lin">
-          <span class="dl-icon">◈</span>
-          <div class="dl-meta">
-            <span>Linux Package</span>
-            <span class="dl-sub">Ubuntu 22.04/24.04 · contact for link</span>
+          <div style="background:rgba(74,158,255,0.10);border:1px solid rgba(74,158,255,0.28);color:var(--blue);font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:4px">PRO</div>
+        </div>
+
+        <!-- what's included -->
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border)">
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> Everything in Community</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> NAS SM/MM — plain + secured OTA</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> MAC / RLC / PDCP per-TTI capture</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> L1 — RSRP / SINR / CQI + neighbours</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> Live KPI windows (DL, SNR, UL, PDCP)</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)"><span style="color:var(--blue);font-size:14px">✓</span> Ubuntu + Windows + Raspberry Pi</div>
+        </div>
+
+        <!-- dynamic pro assets -->
+        <div id="pro-assets">
+          <div class="dl-state" style="padding:20px 0">
+            <div class="spinner"></div>
+            <div class="dl-state-title" style="font-size:13px">Fetching release…</div>
           </div>
-        </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScgfjohunyOemKoh6o7P4J34UoT6v8uIKG3AiFH7B7z56a48w/viewform?usp=sharing" target="_blank" rel="noopener" class="dl-btn form">
-          Apply for trial license →
+        </div>
+
+        <div style="margin-top:12px">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Perfect for</div>
+          <div style="font-size:12px;color:var(--sub);line-height:1.6">Field engineers · R&amp;D labs · Network operators · Test &amp; verification teams</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- release meta + requirements -->
+    <div style="background:var(--surf2);border:1px solid var(--border);border-radius:10px;padding:24px 28px">
+      <div class="release-meta" id="release-meta" style="display:none;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)">
+        <span class="release-version" id="rel-version"></span>
+        <span class="release-date" id="rel-date"></span>
+        <a class="release-notes-link" id="rel-notes" href="#" target="_blank" rel="noopener">Release notes ↗</a>
+      </div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:0.13em;margin-bottom:12px">Requirements</div>
+      <ul class="req-list" style="margin-top:0">
+        <li>USB connection to a supported COTS 5G smartphone</li>
+        <li>Wireshark 4.4.2 or later installed on the host</li>
+        <li>Community: Ubuntu 22.04 / 24.04 · Professional: Ubuntu + Windows 10/11</li>
+        <li>4 GB RAM recommended</li>
+        <li>Professional Edition requires a <code style="font-family:var(--mono);font-size:11px;background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px">license.lic</code> file placed alongside the executable</li>
+      </ul>
+      <div class="trial-link-row" style="margin-top:20px">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScgfjohunyOemKoh6o7P4J34UoT6v8uIKG3AiFH7B7z56a48w/viewform?usp=sharing"
+           target="_blank" rel="noopener" class="trial-link">
+          Apply for Professional trial license →
         </a>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -600,8 +456,7 @@ footer a { color: var(--accent); text-decoration: none; }
     <div class="contact-left">
       <h3>Talk to us</h3>
       <p style="margin-bottom:10px;font-style:italic;color:var(--sub)">"Don't just test your network — understand your UE."</p>
-      <p>
-        For queries, demos or licensing:<br>
+      <p>For queries, demos or licensing:<br>
         <a href="mailto:info@makemytechnology.com">info@makemytechnology.com</a> &nbsp;·&nbsp;
         <a href="mailto:nj_contact@yahoo.com">nj_contact@yahoo.com</a>
       </p>
@@ -621,5 +476,137 @@ footer a { color: var(--accent); text-decoration: none; }
   <p><a href="mailto:info@makemytechnology.com">info@makemytechnology.com</a></p>
 </footer>
 
+<script>
+// ── GitHub Releases — Community vs Professional ───────────────────────────────
+// Public repo: bixbi-super/mobisync-5g
+// Assets are classified into Community or Professional by filename.
+// Community assets contain "community" in the filename.
+// All other assets (exe, deb, win, pro, etc.) go to Professional.
+// Just publish a new release — this page updates automatically.
+
+const RELEASES_API  = 'https://api.github.com/repos/bixbi-super/mobisync-5g/releases/latest';
+const RELEASES_PAGE = 'https://github.com/bixbi-super/mobisync-5g/releases';
+
+function formatBytes(b) {
+  if (!b) return '';
+  return b < 1024*1024 ? (b/1024).toFixed(0)+' KB' : (b/(1024*1024)).toFixed(1)+' MB';
+}
+
+function formatDate(iso) {
+  return new Date(iso).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
+}
+
+// Detect platform from filename
+function platform(name) {
+  const n = name.toLowerCase();
+  if (n.endsWith('.exe') || n.endsWith('.msi') || n.includes('win') || n.includes('windows') || n.includes('setup'))
+    return { icon:'⊞', label:'Windows', cls:'win' };
+  if (n.endsWith('.deb'))
+    return { icon:'◈', label:'Ubuntu / Debian (.deb)', cls:'lin' };
+  if (n.endsWith('.rpm'))
+    return { icon:'◈', label:'Linux (.rpm)', cls:'lin' };
+  if (n.endsWith('.tar.gz') || n.endsWith('.tgz') || n.endsWith('.tar.xz'))
+    return { icon:'◈', label:'Linux (tarball)', cls:'lin' };
+  if (n.endsWith('.appimage'))
+    return { icon:'◈', label:'Linux AppImage', cls:'lin' };
+  if (n.endsWith('.zip') && (n.includes('win') || n.includes('windows')))
+    return { icon:'⊞', label:'Windows (zip)', cls:'win' };
+  if (n.endsWith('.zip') && (n.includes('linux') || n.includes('ubuntu')))
+    return { icon:'◈', label:'Linux (zip)', cls:'lin' };
+  return { icon:'⬇', label: name, cls:'other' };
+}
+
+// Is this asset the Community Edition binary?
+function isCommunity(name) {
+  return name.toLowerCase().includes('community');
+}
+
+function assetButton(asset, colorCls) {
+  const p = platform(asset.name);
+  const cls = colorCls || p.cls;
+  const size = formatBytes(asset.size);
+  const dlCount = asset.download_count ? asset.download_count.toLocaleString()+' downloads' : '';
+  const meta = [size, dlCount].filter(Boolean).join(' · ');
+  return `<a href="${asset.browser_download_url}" class="asset-btn ${cls}" download>
+    <span class="asset-icon">${p.icon}</span>
+    <div class="asset-info">
+      <span class="asset-name">${p.label}</span>
+      <span class="asset-meta">${asset.name}${meta ? ' · '+meta : ''}</span>
+    </div>
+  </a>`;
+}
+
+function comingSoon(msg) {
+  return `<div class="dl-state" style="padding:16px 0">
+    <div class="dl-state-icon">🚀</div>
+    <div class="dl-state-title" style="font-size:13px">${msg}</div>
+  </div>`;
+}
+
+async function loadRelease() {
+  const communityEl = document.getElementById('community-assets');
+  const proEl       = document.getElementById('pro-assets');
+  const metaBar     = document.getElementById('release-meta');
+
+  try {
+    const res = await fetch(RELEASES_API, { headers:{ 'Accept':'application/vnd.github+json' } });
+
+    if (res.status === 404) {
+      communityEl.innerHTML = comingSoon('Release coming soon');
+      proEl.innerHTML       = comingSoon('Release coming soon');
+      return;
+    }
+    if (!res.ok) throw new Error(res.status);
+
+    const release = await res.json();
+
+    // Meta bar
+    document.getElementById('rel-version').textContent = release.tag_name || release.name;
+    document.getElementById('rel-date').textContent    = release.published_at ? '· '+formatDate(release.published_at) : '';
+    document.getElementById('rel-notes').href          = release.html_url;
+    metaBar.style.display = 'flex';
+
+    const assets = release.assets || [];
+
+    // Split assets
+    const communityAssets = assets.filter(a => isCommunity(a.name));
+    const proAssets       = assets.filter(a => !isCommunity(a.name));
+
+    // Render Community
+    if (communityAssets.length) {
+      communityEl.innerHTML = `<div class="assets-grid">${communityAssets.map(a => assetButton(a, 'win')).join('')}</div>`;
+    } else {
+      communityEl.innerHTML = comingSoon('Community binary coming soon');
+    }
+
+    // Render Professional
+    if (proAssets.length) {
+      proEl.innerHTML = `<div class="assets-grid">${proAssets.map(a => assetButton(a)).join('')}</div>`;
+    } else {
+      proEl.innerHTML = `<div class="dl-state" style="padding:16px 0">
+        <div class="dl-state-title" style="font-size:13px;color:var(--sub)">Contact us for Professional binaries</div>
+        <div style="margin-top:8px">
+          <a href="mailto:info@makemytechnology.com?subject=Mobisync Professional Edition Download"
+             style="font-family:var(--mono);font-size:12px;color:var(--blue);text-decoration:none">
+            info@makemytechnology.com ↗
+          </a>
+        </div>
+      </div>`;
+    }
+
+  } catch(err) {
+    const errHtml = `<div class="dl-state" style="padding:16px 0">
+      <div class="dl-state-title" style="font-size:13px">Could not load —
+        <a href="${RELEASES_PAGE}" target="_blank" rel="noopener"
+           style="color:var(--accent);text-decoration:none">view on GitHub ↗</a>
+      </div>
+    </div>`;
+    communityEl.innerHTML = errHtml;
+    proEl.innerHTML       = errHtml;
+  }
+}
+
+loadRelease();
+</script>
 </body>
 </html>
